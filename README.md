@@ -18,13 +18,18 @@
 
 ## 📌 Overview
 
-Detect and confirm OS command injection via
+OBlast is an OS command-injection scanner for authorised web application testing, probing GET, POST and header vectors. It confirms injection through echo-marker output extraction and time-based blind detection, using 40+ delimiter payloads with optional WAF-bypass variants. A dry-run mode previews payloads without sending any requests, and results export to TXT or JSON.
 
 ---
 
 ## ✨ Features
 
-- OBlast v2.1.0 — OS command injection scanner (GET/POST/Header), authorised testing only
+- Echo-marker command injection scanning across GET/POST/header vectors
+- Time-based blind injection detection with configurable sleep
+- 40+ delimiter payloads with optional WAF-bypass variants
+- Quick single-payload tests and dry-run payload preview (no requests)
+- Proxy and cookie support with configurable timeout
+- TXT / JSON report export
 
 ---
 
@@ -38,7 +43,10 @@ Detect and confirm OS command injection via
 ## 🚀 Usage
 
 ```bash
-./OBlast
+./OBlast scan -u "http://target/vuln?ip=1" -p ip -c id
+./OBlast blind -u "http://target/ping?host=1" -p host -s 5
+./OBlast dryrun
+./OBlast --help
 ```
 
 ---
